@@ -1,0 +1,65 @@
+{
+  "version": "1.0",
+  "documents": [
+    {
+      "file_name": "adk_and_gemini.txt",
+      "doc_id": "doc_adk_gemini",
+      "title": "Build with Gemini & ADK Overview",
+      "category": "technical_docs",
+      "tags": ["adk", "agents-cli", "gemini", "rag_engine", "vertex_ai", "scaffold", "deploy"],
+      "sections": [
+        {
+          "section_id": "adk_overview",
+          "header": "What is ADK (Agent Development Kit)?",
+          "category": "technical_docs",
+          "tags": ["adk", "framework", "tools", "multi_agent", "a2a", "state_management"],
+          "summary": "Overview of the open-source Agent Development Kit for building AI agents."
+        },
+        {
+          "section_id": "agents_cli_overview",
+          "header": "What is agents-cli?",
+          "category": "technical_docs",
+          "tags": ["agents-cli", "scaffold", "cli", "playground", "eval", "deploy"],
+          "summary": "CLI toolchain for scaffolding, testing, evaluating, and deploying ADK agents."
+        },
+        {
+          "section_id": "vertex_rag_overview",
+          "header": "What is Vertex AI RAG Engine?",
+          "category": "technical_docs",
+          "tags": ["rag_engine", "vertex_ai", "vector_search", "embedding", "chunking"],
+          "summary": "Managed index for grounding agents on Cloud Storage documents."
+        }
+      ]
+    },
+    {
+      "file_name": "nova_corp_policies.txt",
+      "doc_id": "doc_nova_policies",
+      "title": "NovaSmart Corporate Policies & FAQ",
+      "category": "hr_policies",
+      "tags": ["remote_work", "travel_expenses", "meal_allowance", "ai_governance", "security", "iam"],
+      "sections": [
+        {
+          "section_id": "remote_work_policy",
+          "header": "Working Hours & Remote Work",
+          "category": "hr_policies",
+          "tags": ["remote_work", "working_hours", "hybrid_work", "schedule"],
+          "summary": "Flexible hybrid work model, core hours 10 AM to 4 PM, up to 3 days remote."
+        },
+        {
+          "section_id": "travel_reimbursement",
+          "header": "Travel Expense Reimbursement",
+          "category": "hr_policies",
+          "tags": ["travel_expenses", "meal_allowance", "reimbursement", "flights"],
+          "summary": "Expense report 30-day submission limit, $75 daily meal allowance, economy flights."
+        },
+        {
+          "section_id": "security_governance",
+          "header": "Security & AI Governance Policy",
+          "category": "security_governance",
+          "tags": ["ai_governance", "agent_registry", "agent_identity", "iam", "least_privilege"],
+          "summary": "Agent Registry catalog requirements, mandatory distinct Agent Identity, least privilege IAM."
+        }
+      ]
+    }
+  ]
+}

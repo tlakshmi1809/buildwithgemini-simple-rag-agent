@@ -1,0 +1,14 @@
+# NovaSmart Corporate Policies & FAQ
+
+## Working Hours & Remote Work
+NovaSmart operates on a flexible hybrid work model. Core working hours are 10:00 AM to 4:00 PM local time. Employees are eligible for up to 3 days per week remote work with manager approval.
+
+## Travel Expense Reimbursement
+- Expense reports must be submitted within 30 days of travel.
+- Daily meal allowance is $75 per day.
+- Flights under 6 hours must be booked in Economy or Economy Plus.
+
+## Security & AI Governance Policy
+- All AI agents deployed into production must be registered in the official Agent Registry catalog.
+- Shared service accounts are prohibited; every production agent must use its own distinct Agent Identity.
+- Least-privilege IAM roles must be enforced on all agent service accounts.

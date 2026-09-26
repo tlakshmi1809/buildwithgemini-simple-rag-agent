@@ -1,0 +1,20 @@
+# Build with Gemini & ADK Overview
+
+## What is ADK (Agent Development Kit)?
+The Agent Development Kit (ADK) is an open-source framework developed by Google for building, testing, and deploying production-ready AI agents using Gemini models. 
+
+Key features of ADK:
+- Flexible tool integration: Define function tools in plain Python.
+- Multi-agent orchestration: Compose root agents and sub-agents into workflows.
+- Session & State Management: In-memory or persistent state across conversation turns.
+- A2A Protocol: Agent-to-Agent protocol support out of the box.
+
+## What is agents-cli?
+agents-cli is the command-line toolchain for the agent development lifecycle. It lets developers:
+- Scaffold projects: `agents-cli scaffold create my-agent`
+- Run and test locally: `agents-cli run "query"` or `agents-cli playground`
+- Evaluate agent behavior: `agents-cli eval`
+- Deploy agents: `agents-cli deploy` to Vertex AI Agent Runtime or Cloud Run.
+
+## What is Vertex AI RAG Engine?
+Vertex AI RAG Engine provides a managed index for grounding AI agents on documents stored in Google Cloud Storage. It automatically chunks, embeds (using text-embedding-005), and indexes documents for fast semantic retrieval.
