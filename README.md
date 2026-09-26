@@ -1,92 +1,75 @@
-# simple-rag-agent
+# Optimized RAG Agent (ADK & agents-cli)
 
-Simple ReAct agent
-Agent generated with `agents-cli` version `1.1.0`
+An optimized Retrieval-Augmented Generation (RAG) AI Agent built with Google's **Agent Development Kit (ADK)** and managed using **`agents-cli`**.
 
-## Project Structure
+It features **Knowledge Base Metadata Indexing**, **User Intent Classification**, and a **4-Tier Progressive Retrieval Engine** with intent-aware fallbacks.
 
-```
-simple-rag-agent/
-├── app/         # Core agent code
-│   ├── agent.py               # Main agent logic
-│   ├── fast_api_app.py        # FastAPI Backend server
-│   └── app_utils/             # App utilities and helpers
-├── tests/                     # Unit, integration, and load tests
-├── GEMINI.md                  # AI-assisted development guide
-└── pyproject.toml             # Project dependencies
-```
+> 📖 **Detailed Architecture Guide**: See [IMPLEMENTATION_GUIDE.md](file:///config/Desktop/Session1/simple-rag-agent/IMPLEMENTATION_GUIDE.md) for full technical documentation, sequence flows, and metadata schemas.
 
-> 💡 **Tip:** Use [Antigravity CLI](https://antigravity.google/) for AI-assisted development - project context is pre-configured in `GEMINI.md`.
+---
 
-## Requirements
+## 🌟 Key Features
 
-Before you begin, ensure you have:
-- **uv**: Python package manager (used for all dependency management in this project) - [Install](https://docs.astral.sh/uv/getting-started/installation/) ([add packages](https://docs.astral.sh/uv/concepts/dependencies/) with `uv add <package>`)
-- **agents-cli**: Agents CLI - Install with `uv tool install google-agents-cli`
-- **Google Cloud SDK**: For GCP services - [Install](https://cloud.google.com/sdk/docs/install)
+1. **Structured Knowledge Base Metadata** ([knowledge_base/metadata.json](file:///config/Desktop/Session1/simple-rag-agent/knowledge_base/metadata.json)): Categorized sections with metadata tags (`adk`, `remote_work`, `travel_expenses`, `ai_governance`).
+2. **User Intent Classification** ([app/intent.py](file:///config/Desktop/Session1/simple-rag-agent/app/intent.py)): Pre-search classification mapping queries to domain categories (`technical_docs`, `hr_policies`, `security_governance`).
+3. **Multi-Tier Fallback Retrieval Engine** ([app/agent.py](file:///config/Desktop/Session1/simple-rag-agent/app/agent.py)): 4-stage search pipeline that degrades gracefully when exact matches are missing, providing guided suggested queries and contact info.
 
+---
 
-## Quick Start
+## 🚀 Quick Start
 
-Install `agents-cli` and its skills if not already installed:
-
-```bash
-uvx google-agents-cli setup
-```
-
-Install required packages:
-
+### 1. Install Dependencies
 ```bash
 agents-cli install
 ```
 
-Test the agent with a local web server:
+### 2. Test Queries
+```bash
+# HR Policy Query
+agents-cli run "What is the daily meal allowance for business travel?"
 
+# Technical Query
+agents-cli run "How do I scaffold a project using agents-cli?"
+
+# Missing Topic Query (Triggers Intent Fallback)
+agents-cli run "What is the pet policy in the office?"
+```
+
+### 3. Launch Development Playground
 ```bash
 agents-cli playground
 ```
 
-You can also use features from the [ADK](https://adk.dev/) CLI with `uv run adk`.
+---
 
-## Commands
+## 📁 Project Anatomy
 
-| Command              | Description                                                                                 |
-| -------------------- | ------------------------------------------------------------------------------------------- |
-| `agents-cli install` | Install dependencies using uv                                                         |
-| `agents-cli playground` | Launch local development environment                                                  |
-| `agents-cli lint`    | Run code quality checks                                                               |
-| `agents-cli eval`    | Evaluate agent behavior (generate, grade, analyze, and more — see `agents-cli eval --help`) |
-| `uv run pytest tests/unit tests/integration` | Run unit and integration tests                                                        || [A2A Inspector](https://github.com/a2aproject/a2a-inspector) | Launch A2A Protocol Inspector                                                        |
-
-## 🛠️ Project Management
-
-| Command | What It Does |
-|---------|--------------|
-| `agents-cli scaffold enhance` | Add CI/CD pipelines and Terraform infrastructure |
-| `agents-cli infra cicd` | One-command setup of entire CI/CD pipeline + infrastructure |
-| `agents-cli scaffold upgrade` | Auto-upgrade to latest version while preserving customizations |
+```
+simple-rag-agent/
+├── app/
+│   ├── agent.py               # Root ADK agent and multi-tier retrieval engine
+│   ├── intent.py              # User intent classification module
+│   ├── fast_api_app.py        # FastAPI Backend server
+│   └── app_utils/             # App utilities and helpers
+├── knowledge_base/
+│   ├── metadata.json          # Document metadata registry
+│   ├── adk_and_gemini.txt     # ADK & agents-cli documentation
+│   └── nova_corp_policies.txt # HR & Governance policies
+├── IMPLEMENTATION_GUIDE.md    # Detailed architecture documentation
+├── tests/                     # Unit and integration tests
+├── GEMINI.md                  # Development guide
+└── pyproject.toml             # Project dependencies
+```
 
 ---
 
-## Development
+## 🛠️ Commands
 
-Edit your agent logic in `app/agent.py` and test with `agents-cli playground` - it auto-reloads on save.
-
-## Deployment
-
-```bash
-gcloud config set project <your-project-id>
-agents-cli deploy
-```
-
-To add CI/CD and Terraform, run `agents-cli scaffold enhance`.
-To set up your production infrastructure, run `agents-cli infra cicd`.
-
-## Observability
-
-Built-in telemetry exports to Cloud Trace, BigQuery, and Cloud Logging.
-
-## A2A Inspector
-
-This agent supports the [A2A Protocol](https://a2a-protocol.org/). Use the [A2A Inspector](https://github.com/a2aproject/a2a-inspector) to test interoperability.
-See the [A2A Inspector docs](https://github.com/a2aproject/a2a-inspector) for details.
+| Command | Description |
+| ------- | ----------- |
+| `agents-cli install` | Install dependencies using `uv` |
+| `agents-cli run "<query>"` | Run agent prompt locally |
+| `agents-cli playground` | Launch interactive web development UI |
+| `agents-cli lint` | Code quality checks |
+| `agents-cli eval` | Run evaluation suite |
+| `agents-cli deploy` | Deploy to Vertex AI Agent Runtime or Cloud Run |
